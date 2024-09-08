@@ -1,3 +1,4 @@
 .DS_Store
 .hello_cargo/target/
 .Guess_Game/target/
+.o
