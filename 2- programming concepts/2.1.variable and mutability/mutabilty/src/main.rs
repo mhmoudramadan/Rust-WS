@@ -5,19 +5,24 @@
 // let x = 10; immutable "Value won't change"
 // let mut x = 100;  mutable "value can be change"
 
+/**
+ * 
+ * Variable bindings are immutable by default, but this can be overridden using the mut modifier.
+ * 
+*/
 fn main (){
 
-    let x = 100;
-    println!("the values of immutable x is {x}");
+    let immutable_x = 100;
+    println!("the values of immutable x is {immutable_x}");
 
     // Error  -> reassignment of immutable varible
     //x = 200;
     //println!("the values of x is {x}");  
 
 
-    let mut y = 300;
-    println!("The Value of Mutable Y is {y}");
+    let mut mutable_y = 300;
+    println!("The Value of Mutable Y is {mutable_y}");
 
-    y = 1000;
-    println!("The Value of Mutable Y is {y}")
+    mutable_y = 1000;
+    println!("The Value of Mutable Y is {mutable_y}")
 }
