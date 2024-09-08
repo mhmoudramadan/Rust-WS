@@ -20,7 +20,7 @@
 - [Contributing](#Contributing)
 - [License](#License)
 
-## 🏁 Getting Started `<a name = "getting_started"></a>`
+## 🏁 Getting Started 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them.
 
 ```
-install Rust for offical site https://www.rust-lang.org/tools/install
+install Rust from offical site https://www.rust-lang.org/tools/install
 ```
 
 ```
@@ -40,7 +40,7 @@ install Visual studio c++ build tools
 
 Say what the step will be
 
-1-for macOS,Linux
+1-For macOS,Linux
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -53,7 +53,7 @@ download RUSTUP-INIT.EXE for (32 or 64 Bit)
 
 ```
 
-3- clone the repository
+3- Clone the repository
 
 ```
 git clone https://github.com/mhmoudramadan/Rust-WS.git
