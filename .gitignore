@@ -2,3 +2,5 @@
 .hello_cargo/target/
 .Guess_Game/target/
 .o
+.bin
+.lock
