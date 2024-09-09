@@ -10,6 +10,19 @@
  *  char Unicode scalar values like 'a', 'α' and '∞' (4 bytes each)
  *  bool either true or false
  *  The unit type (), whose only possible value is an empty tuple: ()
+ * 
+ * signed variant can store numbers from -(2n - 1) to 2n - 1 - 1 
+ * Unsigned variants can store numbers from 0 to 2n - 1
+ * 
+        * Length	Signed	Unsigned
+        *  8-bit	  i8	    u8
+        *   16-bit	i16	    u16
+        *   32-bit	i32	    u32
+        *   64-bit	i64	    u64
+        *   128-bit	i128	  u128
+        *   arch	  isize	   usize
+      * 
+
  */
 
 
@@ -88,5 +101,17 @@ Formatted print Printing is handled by a series of macros defined in std::fmt so
     // Variables can be overwritten with shadowing.
     let mutablevar = true;
     println!("mutable number is {mutablevar}");
-    
+
+
+    // Ways To create string
+    /**
+     * 1 - &str -> s immutable, and typically more efficient when dealing with static strings or substrings.
+     * 2 - String -> s heap-allocated and mutable, useful when you need to modify or grow a string dynamically.
+     */
+
+    let name : String = String::from("hello,mahmoud");
+
+    let name_1: &str = "Hello . mahmoud";
+
+    println!("greeting   {}",name);
 }
