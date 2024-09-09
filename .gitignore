@@ -3,3 +3,4 @@
 .bin
 .lock
 target
+Guess_Game/target/.rustc_info.json
