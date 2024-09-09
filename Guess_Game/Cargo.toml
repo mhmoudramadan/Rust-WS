@@ -1,6 +1,0 @@
-[package]
-name = "Guess_Game"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
