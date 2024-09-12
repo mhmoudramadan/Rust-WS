@@ -34,12 +34,37 @@ impl TryFrom<i32> for Age_ {
     
 }
 
+
+/// 
+/// The TryInto trait is automatically implemented for any type that implements the TryFrom trait.
+/// pub trait TryInto<T>: Sized {
+/// type Error;
+/// 
+/// fn try_into(self) -> Result<T, Self::Error>;
+/// }
+// T: The type to which you want to convert the value.
+// self: The value being converted.
+// The method try_into(self) returns a Result type, which is either Ok(T) if the conversion succeeds or Err(Self::Error) if it fails.
+
+use std::convert::TryInto;
+
+
 fn main() {
 
+    // try_from
     let age_ = Age_::try_from(27);
     println!("Age is {:?}",age_);
 
     let invalid_age_ = Age_::try_from(130);
     println!("invalid age is {:?}",invalid_age_);
+
+    // try_into
+    let number_ = 30i32;
+    let my_age:Result<Age_,String> = number_.try_into();
+
+    match my_age{
+        Ok(a) => println!("Age is valid: {:?}", a),
+        Err(e) => println!("Error: {}", e),
+    }
     
 }
