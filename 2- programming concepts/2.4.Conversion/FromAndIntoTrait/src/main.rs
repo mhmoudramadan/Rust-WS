@@ -45,6 +45,15 @@ impl std::convert::From<u32> for Number{
 /// It is part of the standard library and provides a method called into() to perform conversions.
 /// 
 /// 
+/// The code defines a struct NumberTag with a single field value of type u32 and implements the Into
+/// trait to convert u32 into NumberTag.
+/// 
+/// Properties:
+/// 
+/// * `value`: The `NumberTag` struct has one field named `value` of type `u32`. The `Into` trait is
+/// implemented for converting a `u32` value into a `NumberTag` instance. This allows you to create a
+/// `NumberTag` instance from a `u32` value
+
 #[derive(Debug)]
 struct NumberTag{
     value:u32,
