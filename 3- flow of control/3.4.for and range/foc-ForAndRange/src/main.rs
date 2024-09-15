@@ -34,7 +34,7 @@ fn main() {
     // all handle the conversion of a collection into an iterator in different ways
     // by providing different views on the data within.
 
-    // iter 
+    // ### 1-  iter 
     // borrows each element of the collection through each iteration
     // collection untouched and available for reuse after the loop
 
@@ -57,6 +57,43 @@ fn main() {
 
         }
     }
+    println!("names: {:?}", names);
+
+
+    // ### 2- into_iter
+    // This consumes the collection so that on each iteration the exact data is provided. 
+    // Once the collection has been consumed it is no longer available for reuse as it has been 'moved' within the loop.
+
+
+    /// This code snippet is creating a vector named `ccl` containing three string elements. It then
+    /// iterates over each element of the `ccl` vector using the `into_iter()` method, which consumes the
+    /// vector on each iteration providing the exact data. Inside the loop, it matches each element against
+    /// the string "ali" and prints "Found matching!" if there is a match, otherwise it prints "Hello
+    /// [element]".
+    let ccl = vec!["mahmoud", "ahmed", "ali"];
+
+    for x in ccl.into_iter() {
+        match x {
+            "ali" => println!("Found matching!"),
+                        _ => println!("Hello {}",x),
+        }
+    }
+        
+    // println!("names: {:?}", ccl);
+    // ### 3- iter_mut
+    // This mutably borrows each element of the collection
+    //  allowing for the collection to be modified in place.
+
+    let mut names = vec!["mahmoud", "ahmed", "ali","mahmoud"];
+
+    for name in names.iter_mut() {
+        *name = match name {
+
+            &mut "mahmoud" => "Found matching and modify it ",
+            _ => name,
+        }
+    }
+
     println!("names: {:?}", names);
 
 
