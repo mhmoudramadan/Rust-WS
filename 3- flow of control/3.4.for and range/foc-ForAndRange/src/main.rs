@@ -84,6 +84,10 @@ fn main() {
     // This mutably borrows each element of the collection
     //  allowing for the collection to be modified in place.
 
+    /// This code snippet is creating a mutable vector named `names` containing four string elements. It
+    /// then iterates over each element of the `names` vector using the `iter_mut()` method, which
+    /// mutably borrows each element of the collection, allowing for the collection to be modified in
+    /// place.
     let mut names = vec!["mahmoud", "ahmed", "ali","mahmoud"];
 
     for name in names.iter_mut() {
