@@ -79,5 +79,40 @@ fn main() {
         (x, y) => println!("The point is at ({}, {})", x, y),
         _ => println!("Invalid point coordinates"),
     }
+
+
+    // pointers and ref
+    // a distinction needs to be made between destructuring and dereferencing 
+    // as they are different concepts which are used differently from languages like C/C++.
+
+
+    // Dereferencing uses ------->   *
+    // Destructuring uses-------->  & , ref , and  ref mut
+
+   // `let reference = &4;` is creating a variable named `reference` that holds a reference to the
+   // value `4`. The `&` symbol is used to create a reference to the value `4` in Rust. This means that
+   // `reference` is not directly storing the value `4`, but rather a reference to where the value `4`
+   // is stored in memory. This allows you to work with the value `4` indirectly through the reference
+   // `reference`.
+   // 
+   // 
+    
+    let reference = &4;
+
+    match reference {
+        // If `reference` is pattern matched against `&val`, it results
+        // in a comparison like:
+        // `&i32`
+        // `&val`
+        // ^ We see that if the matching `&`s are dropped, then the `i32`
+        // should be assigned to `val`.
+        &val => println!("Got a value via destructuring: {:?}", val),
+    }
+
+    // To avoid the `&`, you dereference before matching.
+    match *reference {
+        val => println!("Got a value via dereferencing: {:?}", val),
+    }
+
     
 }
