@@ -39,10 +39,30 @@ fn main() {
     // variable `num`.
     num = 8;
 
-    match number {
+    match num {
         1..=5 => println!("The number is between 1 and 5"),
         6..=10 => println!("The number is between 6 and 10"),
         _ => println!("The number is out of range"),
+    }
+
+    // ------------------ Matching Enums ---------
+
+  /// This code snippet in Rust is demonstrating the use of enums and pattern matching with the `match`
+  /// keyword.
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right,
+    }
+    let direction = Direction::Up;
+    
+    match direction {
+        Direction::Up => println!("Going up!"),
+        Direction::Down => println!("Going down!"),
+        Direction::Left => println!("Going left!"),
+        Direction::Right => println!("Going right!"),
+        _ => println!("default case"),
     }
     
 }
