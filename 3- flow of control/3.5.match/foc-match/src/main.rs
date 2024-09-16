@@ -22,13 +22,27 @@ fn main() {
     // -----------------  Multpile patterns ---------
 
 
-   /// The code snippet `num = 15; match num { 1 | 2 | 3 => println!("number is 1 or 2 or 3"), _ =>
-   /// println!("this is default Case like switch statement"), }` is using the `match` keyword in Rust
-   /// to perform pattern matching on the value of the variable `num`.
+   // The code snippet `num = 15; match num { 1 | 2 | 3 => println!("number is 1 or 2 or 3"), _ =>
+   // println!("this is default Case like switch statement"), }` is using the `match` keyword in Rust
+   // to perform pattern matching on the value of the variable `num`.
     num = 15;
     match num {
         1 | 2 | 3 => println!("number is 1 or 2 or 3"),
         _ => println!("this is default Case like switch statement"),
+    }
+
+
+    // --------------- matching range ---------------
+    // The code snippet `num = 8; match number { 1..=5 => println!("The number is between 1 and 5"),
+    // 6..=10 => println!("The number is between 6 and 10"), _ => println!("The number is out of
+    // range"), }` is using the `match` keyword in Rust to perform pattern matching on the value of the
+    // variable `num`.
+    num = 8;
+
+    match number {
+        1..=5 => println!("The number is between 1 and 5"),
+        6..=10 => println!("The number is between 6 and 10"),
+        _ => println!("The number is out of range"),
     }
     
 }
