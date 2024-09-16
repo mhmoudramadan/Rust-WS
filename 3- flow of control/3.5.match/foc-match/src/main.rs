@@ -114,5 +114,27 @@ fn main() {
         val => println!("Got a value via dereferencing: {:?}", val),
     }
 
+
+    // ------------ Guards -----------
+    // used for filter the match
+
+    enum Point {
+        x(i16),
+        y(i16),
+    }
+
+    let point = Point::x(35);
+
+    match point {
+        // The `if condition` part ^ is a guard
+        Point::x(T) if T > 30 => println!("point located at x axis point after 30 "),
+
+        Point::x(T) => println!("point located at x axis point after 30 "),
+
+        Point::y(T) if T > 30 => println!("point located at x axis point after 30 "),
+
+        Point::y(T) if T > 30 => println!("point located at x axis point after 30 "),
+        _ => println!("default case"),
+    }
     
 }
