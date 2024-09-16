@@ -47,8 +47,8 @@ fn main() {
 
     // ------------------ Matching Enums ---------
 
-  /// This code snippet in Rust is demonstrating the use of enums and pattern matching with the `match`
-  /// keyword.
+    // This code snippet in Rust is demonstrating the use of enums and pattern matching with the `match`
+    // keyword.
     enum Direction {
         Up,
         Down,
@@ -63,6 +63,21 @@ fn main() {
         Direction::Left => println!("Going left!"),
         Direction::Right => println!("Going right!"),
         _ => println!("default case"),
+    }
+
+
+    // Destructuring using match
+    // you can destructure complex types like structs, tuples, and enums with associated data.
+    
+    // This code snippet in Rust is demonstrating pattern matching with destructuring on a tuple.
+    let point = (3, 4);
+
+    match point {
+        (0, 0) => println!("The point is at the origin"),
+        (x, 0) => println!("The point is on the x-axis at {}", x),
+        (0, y) => println!("The point is on the y-axis at {}", y),
+        (x, y) => println!("The point is at ({}, {})", x, y),
+        _ => println!("Invalid point coordinates"),
     }
     
 }
