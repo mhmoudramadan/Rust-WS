@@ -10,6 +10,15 @@
 // if let is cleaner for this use case and in addition allows various failure options to be specified
 
 
+
+    enum Color {
+        Red,
+        Blue,
+        Green,
+        RGB(u8, u8, u8),
+    }
+
+
 fn main() {
 
 
@@ -41,7 +50,14 @@ fn main() {
 
     // --------- if let with enums --------
 
-    
+    let color = Color::RGB(0,160,255);
+
+    if let Color::RGB(r,g,b) = color {
+        println!("RGB is {} {} {}",r,g,b);
+    }else {
+        println!("Not a RGB color");
+
+    }
 
     
 }
