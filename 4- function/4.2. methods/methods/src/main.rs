@@ -15,7 +15,9 @@
 // The most common example is a constructor function, such as new.
 
 // 2- methods 
+//  is a function that is tied to an instance of a type. It takes self as its first parameter, representing the instance.
 //  are associated functions that are called on a particular instance of a type.
+// Methods can be called using the dot notation [ . ]
 
 
 
@@ -36,10 +38,18 @@ impl Rectangle {
 
     }
 
+    // Method that calculate area of rectangle 
+    fn area(&self) -> u32 {
+
+        self.width * self.height  // Expression so no need for Return keyword
+    }
+
 }
 
 fn main() {
     
-    let rect_ = Rectangle::new(50,100);
-    println!("Rectangle coordinates are width {} and height {}",rect_.width ,rect_.height)
+    let mut rect_ = Rectangle::new(50,100);
+    println!("Rectangle coordinates are width {} and height {}",rect_.width ,rect_.height);
+
+    println!(" Area of Rectangle is {}",rect_.area());
 }
