@@ -21,6 +21,12 @@
 
 
 
+// // 
+// Feature 	    Associated Functions	                                Methods
+// Call syntax	    TypeName::function_name()	                            instance.method_name()
+// Takes self?	    No	                                                    Yes (as self, &self, or &mut self)
+// Purpose	        Often used for constructors or utility funcs	        Operates on an instance of the type
+
 // Associated fun 
 
 struct Rectangle {
