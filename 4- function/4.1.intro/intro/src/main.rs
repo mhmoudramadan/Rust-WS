@@ -15,9 +15,23 @@
 // it only care about defining somewhere in a scope that can be seen by the caller
 
 
+
+//  function creation
+// Functions are declared using the [ fn ] keyword
+// function arguments are type annotated, just like variables
+// if function has return the return value must be specified  after an arrow ->
+
+fn function_with_return()-> bool {
+    println!("it's a function with return");
+    return true;
+}
+
 fn main() {
     println!("Hello, world!");
     another_function();
+
+    let mut ret_ = function_with_return();
+    println!("Retrun value is {}",ret_);
 }
 
 fn another_function() {
