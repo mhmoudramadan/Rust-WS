@@ -30,5 +30,9 @@
 
 
 fn main() {
-    println!("Hello, world!");
+
+    // Basic Closure
+    let sum = |a,b| a + b ;
+    let result = sum(5,15);
+    println!("Sum is {}",result);
 }
