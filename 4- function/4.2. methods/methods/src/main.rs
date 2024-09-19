@@ -44,12 +44,30 @@ impl Rectangle {
         self.width * self.height  // Expression so no need for Return keyword
     }
 
+    // Mutating Methods 
+    // method can take &mut self as a parameter to mutate (change) the instance it operates on.
+    // requires the caller object to be mutable
+
+    fn resize_rect(&mut self,new_width:u32,new_height:u32) {
+        println!("Resize Rectangle Dimensions");
+        self.width = new_width;
+        self.height = new_height;
+    }
+
 }
 
 fn main() {
     
     let mut rect_ = Rectangle::new(50,100);
+
     println!("Rectangle coordinates are width {} and height {}",rect_.width ,rect_.height);
 
-    println!(" Area of Rectangle is {}",rect_.area());
+    println!("Area of Rectangle is {}",rect_.area());
+
+
+    // println!("New Rectangle{:?} dimensions are width {} and height is {} and new area is {}",rect_.resize_rect(60,100),rect_.width,rect_.height,rect_.area());
+
+    rect_.resize_rect(60,100);
+    println!("New Rectangle dimensions are width {} and height is {} and new area is {}",rect_.width,rect_.height,rect_.area());
+
 }
