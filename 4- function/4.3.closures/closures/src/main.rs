@@ -27,12 +27,45 @@
 //     // Can capture variables from the surrounding scope
 // };
 
+// closures as input parameter
+// When taking a closure as an input parameter, the closure's complete type must be annotated using one of a few traits,
+//  and they're determined by what the closure does with captured value. In order of decreasing restriction, they are:
+
+// Traits used
+
+//1-     Fn:        the closure uses the captured value by reference (&T)
+//2-     FnMut:     the closure uses the captured value by mutable reference (&mut T)
+//3-     FnOnce:    the closure uses the captured value by value (T)
+
+// If the parameter is annotated as Fn, then capturing variables by &mut T or T are [not allowed]. &T is allowed.
+
+// Function that accepts a closure as a parameter
+
+fn apply<F>(f : F) 
+    where
+        F: Fn(u32)->u32 ,
+{
+    let val = f(5);
+    println!("Result is {}",val);
+}
 
 
 fn main() {
 
     // Basic Closure
     let sum = |a,b| a + b ;
-    let result = sum(5,15);
+    let mut result = sum(5,15);
     println!("Sum is {}",result);
+
+    // Capturing Variables from the Environment
+
+    let x:u16 = 20;
+    let multi = |c| c * x;
+    let result = multi(5);
+    println!("Mul Result is {}",result);
+
+    // Closures as input parameter
+    let add_num = |d| d + 10;
+    apply(add_num);
+
 }
