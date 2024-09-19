@@ -26,12 +26,19 @@ fn function_with_return()-> bool {
     return true;
 }
 
+fn function_with_argandreturn(value : u32)-> u32 {
+    return value;
+}
+
 fn main() {
     println!("Hello, world!");
     another_function();
 
     let mut ret_ = function_with_return();
     println!("Retrun value is {}",ret_);
+
+    let ret_ = function_with_argandreturn(300);
+    println!("Return Value is {}",ret_);
 }
 
 fn another_function() {
