@@ -50,6 +50,12 @@ fn apply<F>(f : F)
 }
 
 
+// Returning Closures from Functions
+
+fn make_addtion(x:u32) -> impl Fn(u32) ->u32 {
+    move |y| y +x
+}
+
 fn main() {
 
     // Basic Closure
@@ -82,5 +88,14 @@ fn main() {
 
     // `name` cannot be used anymore, as it was moved into the closure
     // println!("{}", name); // This would cause a compile-time error
+
+
+    // Returning Closures from Functions
+    let add_num = make_addtion(5);
+
+    // Call closures 
+    let sum_ = add_num(10);
+
+    println!("addtion is {}",sum_);
 
 }
