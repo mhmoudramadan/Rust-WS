@@ -68,4 +68,19 @@ fn main() {
     let add_num = |d| d + 10;
     apply(add_num);
 
+
+    let name = String::from("Mahmoud");
+
+    // Closure that takes ownership of `name`
+    let consume_name = || {
+        println!("Name: {}", name);
+        // `name` is consumed here, so this closure is FnOnce
+    };
+
+    // Call the closure
+    consume_name();
+
+    // `name` cannot be used anymore, as it was moved into the closure
+    // println!("{}", name); // This would cause a compile-time error
+
 }
