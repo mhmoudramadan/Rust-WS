@@ -16,6 +16,17 @@
 //     panic!("This function never returns!");
 // }
 
+
+//  use panic! in a Diverging Function
+
+fn always_fail()-> ! {
+    panic!("this function always panic and never return");
+}
+
+// #![feature(never_type)]
 fn main() {
    
+   always_fail(); // Call DV
+
+   println!("this line never reached");
 }
