@@ -23,10 +23,18 @@ fn always_fail()-> ! {
     panic!("this function always panic and never return");
 }
 
-// #![feature(never_type)]
+// use infinite loop
+fn always_loop () -> ! {
+    loop {
+         // This loop will run forever
+         println!("This loop never ends.");
+    }
+}
+
+
 fn main() {
    
    always_fail(); // Call DV
-
+   always_loop(); // Call Dv
    println!("this line never reached");
 }
