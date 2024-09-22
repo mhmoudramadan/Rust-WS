@@ -62,12 +62,36 @@ where
     f(value)
 }
 
+
+// Returning a Closure from a Function
+// HOF
+
+/// The function `create_mul` takes a `multiplier` as input and returns a closure that multiplies its
+/// input by the `multiplier`.
+/// 
+/// Arguments:
+/// 
+/// * `multiplier`: The `multiplier` parameter is of type `u32`, which stands for an unsigned 32-bit
+/// integer. It is used to create a closure that multiplies its input by this `multiplier` value.
+
+fn create_mul(multiplier:u32) -> impl Fn(u32)->u32{
+    // move keyword captures multiplier by value, allowing it to be used inside the closure.
+    move |x| x*multiplier
+}
+
 fn main() {
     // Pass `add` function to `operation`
     let mut result = operation(add, 30, 10); 
     println!("Result: {}", result);
    // |x| x * 2 is passed to apply, which doubles the value of 5.
     result = apply(|x|x*2,5);
+    println!("Result: {}", result);
+
+     // Create a closure that multiplies by 3
+    let mul_by_3 = create_mul(3);
+
+     // Call the closure
+    result = mul_by_3(10);
     println!("Result: {}", result);
     
 }
