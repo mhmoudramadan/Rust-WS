@@ -79,6 +79,13 @@ fn create_mul(multiplier:u32) -> impl Fn(u32)->u32{
     move |x| x*multiplier
 }
 
+// HOF with Iterators
+// using iterator
+
+fn is_odd(n:u32)->bool {
+    n %2 == 1
+}
+
 fn main() {
     // Pass `add` function to `operation`
     let mut result = operation(add, 30, 10); 
@@ -93,5 +100,38 @@ fn main() {
      // Call the closure
     result = mul_by_3(10);
     println!("Result: {}", result);
+
+    //  find sum of all squared odd under 1000
+    println!("Find the sum of all the numbers with odd squares under 1000");
+    let upper_limit :u32 = 1000;
+
+    let mut counter = 0u32;
+
+    // Iterate: 0, 1, 2, ... to infinity
+    for n in 0.. {
+        let n_squared = n*n;
+
+        if n_squared > upper_limit {
+            // break if it reach limit
+            break;
+        }else if is_odd(n_squared) {
+            // Accumulate value, if it's odd
+            counter +=n_squared;
+        }
+        else {
+            println!("Invalid statment");
+        }
+    }
     
+    println!("accumalter counter is : {}", counter);
+
+    // functional approach using some iterators
+    let sum_of_squared_odd :u32 =
+        (0..).map(|n| n*n)  // All natural numbers squared
+        .take_while(|&n_squared| n_squared < upper_limit) // check limit
+        .filter(|&n_squared| is_odd(n_squared))     // That are odd
+        .sum(); // sum
+
+    println!("sum of squared odd is {}",sum_of_squared_odd);
+
 }
