@@ -25,6 +25,13 @@ mod my_default_modules {
     pub fn public_fun() {
         println!("public visibility function inside module");
     }
+
+    // nested modules
+    pub mod my_nested_module {
+        pub fn nested_module (){
+            println!("Nested Module function");
+        }
+    }
 }
 
 fn main() {
@@ -32,5 +39,6 @@ fn main() {
         //  cause an error because `add` is private   
 //  my_default_modules::private_fun();
     my_default_modules::public_fun();
+    my_default_modules::my_nested_module::nested_module();
 
 }
