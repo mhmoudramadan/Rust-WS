@@ -32,6 +32,9 @@ mod Shape {
 // use::Shape::{draw_circle}; // Bring specific items into scope
 use Shape::*;  // Bring all public items from the `shapes` module into scope
 
+// Aliasing with as
+use Shape::draw_square as draw_;
+
 fn main() {
 
     Shape::draw_circle();
@@ -42,5 +45,7 @@ fn main() {
 
     draw_circle();
     draw_rectangle();
+
+    draw_();
     
 }
