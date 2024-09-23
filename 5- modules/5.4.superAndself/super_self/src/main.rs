@@ -13,7 +13,7 @@
 
 
 mod Math {
-    pub mod Geometery {
+    pub mod Geometry {
 
         pub fn area_of_square(length:u32) ->u32 {
             length * length
@@ -21,6 +21,10 @@ mod Math {
 
         pub fn perimete_of_square(length:u32)->u32 {
             length * 4
+        }
+
+        pub fn area_of_Square_use_super(length:u32)->u32 {
+            super::multiply(length,length)
         }
 
         pub fn calculate_all_stuff(length:u32) {
@@ -31,10 +35,17 @@ mod Math {
         }
 
     }
+
+    pub fn multiply(a: u32, b: u32) -> u32 {
+        a * b
+    }
 }
 
 fn main() {
 
-    Math::Geometery::calculate_all_stuff(20);
+    Math::Geometry::calculate_all_stuff(20);
+
+    let area = Math::Geometry::area_of_Square_use_super(30);
+    println!("Area of square: {}", area);
 }
 
