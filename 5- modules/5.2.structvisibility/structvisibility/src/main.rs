@@ -54,4 +54,9 @@ fn main() {
 
     println!("area of react is {}",react_.area());
 
+
+    let squ_ = Shapes::Square::new(10);
+
+    println!("area of square is {}",squ_.area());
+
 }
