@@ -1,3 +1,5 @@
+use CreateLibCrate::greet;
+
 fn main() {
-    println!("Hello, world!");
+    greet();
 }

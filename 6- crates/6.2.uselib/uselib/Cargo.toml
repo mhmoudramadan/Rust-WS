@@ -3,4 +3,8 @@ name = "uselib"
 version = "0.1.0"
 edition = "2021"
 
+# first way of adding libray 
+
+
 [dependencies]
+CreateLibCrate = { path = "../../6.1.createlib/CreateLibcrate/"}
