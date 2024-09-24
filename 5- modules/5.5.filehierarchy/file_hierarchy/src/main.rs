@@ -28,8 +28,15 @@
 // │   └── mod3.rs
 // ├── Cargo.toml
 
-
+mod mod1;
+mod mod2;
+mod mod3;
  
 fn main() {
-    
+    println!("Entry point of files");
+    mod1::greeting();
+    mod2::say_hello();
+    mod2::submod::say_goodbye();
+    mod3::introduce();
+
 }
