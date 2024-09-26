@@ -26,7 +26,12 @@
 // Because T has been specified as a generic type parameter using <T>, it is considered generic when used here as (arg: T).
 //  This is the case even if T has previously been defined as a struct.
 
-
+//  Summary 
+// Generic Functions: Allow functions to accept multiple types as parameters.
+// Generic Structs: Allow structs to store data of any type.
+// Generic Enums: Allow enums to represent values of multiple types.
+// Generic Traits: Define behavior for multiple types.
+// Bounded Generics: Restrict generic types to those that implement certain trait
 // concrete type 
 #[derive(Debug)]
 struct A; 
