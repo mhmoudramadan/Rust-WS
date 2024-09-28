@@ -30,6 +30,11 @@ impl Drop for Resource {
     }
 }
 
+// RAII with File Handling in Rust
+use std::fs::File;
+use std::io::Write;
+
+
 
 fn main() {
     {
@@ -37,4 +42,14 @@ fn main() {
     println!("Hello, RAII!");
     } // Resource goes out of scope here, Drop is called
 
+
+    // Resource acquisition
+    {
+        let mut new_file = File::create("RAA.txt")
+        .expect("couldn't create file");
+
+        writeln!(new_file,"Hello RAII")
+            .expect("couldn't write to file");
+    }// File is automatically closed here when it goes out of scope   
+    println!("File operations done, file will be closed now");
 }
