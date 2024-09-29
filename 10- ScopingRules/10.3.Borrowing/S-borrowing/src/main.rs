@@ -39,6 +39,19 @@ fn modify_value(s:&mut String){
 
 
 
+// !! Using References with Slices
+// *  Slices allow you to borrow a part of a data structure. String slices (&str) and array slices are common examples of borrowing.
+
+fn get_first_word(s: &String)-> &str {
+    let bytes= s.as_bytes();
+    for (i,&item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i] // return a slice of the string
+        }
+    }
+    &s[..] // *  Return the whole string if no space is found
+}
+
 fn main() {
     println!("Hello, Borrowing!");
 
@@ -75,4 +88,13 @@ fn main() {
     let r5 = &s4; // Now we can borrow immutably
     println!("String after modification: {}", r5);
 
+    // ! Using References with Slices
+
+    let slice_str = String::from("Slices From Reference");
+
+    let word = get_first_word(&slice_str); // ? Borrow string
+    println!("First word: {}", word);
+
 }
+
+
