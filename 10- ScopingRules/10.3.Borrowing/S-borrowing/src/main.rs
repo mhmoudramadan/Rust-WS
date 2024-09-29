@@ -32,6 +32,13 @@ fn modify_value(s:&mut String){
 // * This ensures that no other part of the code can access the data while it's being modified, preventing data races.
 
 
+
+// !!Borrowing and Function Scopes
+// * References are only valid within the scope of the function they are borrowed.
+// * This means mutable and immutable borrows must stay within their valid scope.
+
+
+
 fn main() {
     println!("Hello, Borrowing!");
 
@@ -55,5 +62,17 @@ fn main() {
 
     // let r3 = &mut s; // Error: cannot borrow `s` as mutable because it is also borrowed as immutable
     println!("{} and {}", r1, r2);
+
+
+    // ! Borrow and fun scope 
+    let mut s4 = String::from("hello");
+
+    {
+        let r1 = &mut s4; // Mutable borrow in inner scope
+        r1.push_str(", Borrowing!");
+    } // r1 goes out of scope, mutable borrow ends
+
+    let r5 = &s4; // Now we can borrow immutably
+    println!("String after modification: {}", r5);
 
 }
