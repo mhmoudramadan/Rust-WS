@@ -21,6 +21,15 @@
 // * For types with a known size at compile time (like integers),
 // * Rust automatically copies the value rather than moving it.
 
+
+// !! Ownership with Functions
+// * When passing data to a function, ownership is moved to the function 
+// * unless the data is a copy type{Reference}.
+
+fn take_ownership(s:String) {
+    println!("{}",s);
+}
+
 fn main() {
     println!("Hello, Ownership and Moves!");
 
@@ -46,4 +55,10 @@ fn main() {
     let var1= 5;
     let var2 = var1; // ? var1 copied to var2
     println!("var1 is {} and var2 is {}",var1,var2);
+
+
+    // ! Ownership with Functions
+    let s3 = String::from("ownership with fun");
+    take_ownership(s3); //s3 is moved to the function
+    // println!("s3 is {}",s3); // Compile error
 }
