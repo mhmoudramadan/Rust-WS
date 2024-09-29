@@ -16,6 +16,11 @@
 // * When a value is moved, the ownership of the value is transferred from one variable to another. 
 // * After a move the original variable can no longer be used because it no longer owns the data
 
+
+// !! Deep Copy vs. Move (For Stack-only Data)
+// * For types with a known size at compile time (like integers),
+// * Rust automatically copies the value rather than moving it.
+
 fn main() {
     println!("Hello, Ownership and Moves!");
 
@@ -35,4 +40,10 @@ fn main() {
 
     // println!("{}", s1); // This would cause an error because s1 is no longer valid
     println!("{}", s2); // s2 now owns the String
+
+    // ! Deep Copy
+
+    let var1= 5;
+    let var2 = var1; // ? var1 copied to var2
+    println!("var1 is {} and var2 is {}",var1,var2);
 }
