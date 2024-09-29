@@ -25,6 +25,13 @@ fn modify_value(s:&mut String){
     s.push_str(".borrow");
 }
 
+
+// !! Restriction on Mutable Borrowing
+// *  Rust enforces strict borrowing rules:
+// * You cannot have both mutable and immutable references to a variable at the same time.
+// * This ensures that no other part of the code can access the data while it's being modified, preventing data races.
+
+
 fn main() {
     println!("Hello, Borrowing!");
 
@@ -40,5 +47,13 @@ fn main() {
     println!("modified valued after mutable borrowing is {}",s2);
 
 
+    // ! Restriction on Mutable Borrowing
+    let mut s = String::from("Restriction borrow");
+
+    let r1 = &s; // Immutable borrow
+    let r2 = &s; // Another immutable borrow
+
+    // let r3 = &mut s; // Error: cannot borrow `s` as mutable because it is also borrowed as immutable
+    println!("{} and {}", r1, r2);
 
 }
