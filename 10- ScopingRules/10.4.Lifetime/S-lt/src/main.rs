@@ -59,6 +59,20 @@ fn pass_x<'a, 'b>(x: &'a i32, _: &'b i32) -> &'a i32 {
      x 
     }
 
+// !! LT in methods
+// * When defining methods on structs with references, 
+// * lifetime annotations may be required to ensure that the method and its parameters follow Rust’s borrowing rules.
+
+struct Counter(u32);
+
+impl Counter {
+
+    // This method increments the value in the struct by 1
+    fn increment<'a>(&'a mut self) {
+        self.0+=1;
+    }
+}
+
 fn main() {
     println!("Hello, Life time concepts!");
     // ! Basic LT concept
@@ -97,5 +111,9 @@ fn main() {
     add_one(&mut d);
     print_one(&d);
 
+    // ! LT in methods
+    let mut counter = Counter(10);
+    counter.increment();
+    println!("counter is {}",counter.0);
 
 }
