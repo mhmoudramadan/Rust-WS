@@ -27,6 +27,38 @@ fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     }
 }
 
+
+// !! LT with function 
+// * Function signatures with lifetimes have a few constraints:
+// * any reference must have an annotated lifetime.
+// *  any reference being returned must have the same lifetime as an input or be static.
+    // ? remark
+// * that returning references without input is banned if it would result in returning references to invalid data
+
+// One input reference with lifetime `'a` which must live
+// at least as long as the function.
+fn print_one<'a>(x: &'a i32) {
+    println!("x is {}", x);
+}
+
+// Mutable references are possible with lifetimes as well.
+fn add_one<'a>(x: &'a mut i32) {
+    *x += 1;
+}
+
+// Multiple elements with different lifetimes. In this case, it
+// would be fine for both to have the same lifetime `'a`, but
+// in more complex cases, different lifetimes may be required.
+fn print_multi<'a, 'b>(x: &'a i32, y: &'b i32) {
+    println!("x is {}, y is {}", x, y);
+}
+
+// Returning references that have been passed in is acceptable.
+// However, the correct lifetime must be returned.
+fn pass_x<'a, 'b>(x: &'a i32, _: &'b i32) -> &'a i32 {
+     x 
+    }
+
 fn main() {
     println!("Hello, Life time concepts!");
     // ! Basic LT concept
@@ -51,6 +83,19 @@ fn main() {
     let s2 = String::from("Ramadan");
     let result = longest(&s1,&s2);
     println!("Longest word is {}",result);
+
+
+    // ! LT with Function paramater
+
+    let y = 5;
+    let z =100;
+    let mut d = 6;
+    print_one(&y);
+    print_multi(&y,&z);
+    let s = pass_x(&z,&y);
+    print_one(&s);
+    add_one(&mut d);
+    print_one(&d);
 
 
 }
