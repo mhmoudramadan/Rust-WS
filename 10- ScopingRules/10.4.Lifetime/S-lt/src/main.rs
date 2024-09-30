@@ -73,6 +73,16 @@ impl Counter {
     }
 }
 
+// !! LT with structs
+// * Lifetimes can also be used with structs when the struct contains references. 
+// * The lifetime ensures that the data being referenced is valid for as long as the struct exists
+
+#[derive(Debug)]
+struct Borrowing_Named<'a> {
+    x : &'a u32,
+    y : &'a u32,
+}
+
 fn main() {
     println!("Hello, Life time concepts!");
     // ! Basic LT concept
@@ -115,5 +125,10 @@ fn main() {
     let mut counter = Counter(10);
     counter.increment();
     println!("counter is {}",counter.0);
+
+    // ! LT with structs
+    let (b6,b7) =(10,15);
+    let borrow_ = Borrowing_Named{x :&b6 ,y:&b7};
+    println!("LT with struct is {:?}",borrow_);
 
 }
