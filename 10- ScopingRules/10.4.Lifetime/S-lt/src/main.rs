@@ -93,6 +93,22 @@ fn print_longest<'a>(x: &'a str, y: &'a str) {
     println!("Longest string: {}", if x.len() > y.len() { x } else { y });
 }
 
+
+// !! LT with Static
+// * the 'static lifetime is a special lifetime that represents references that live for the entire duration of the program.
+// * Global variables in Rust are marked with the static keyword, and they always have a 'static lifetime.
+
+// ? 'static Lifetime with Non-Literal Data
+static GL_MSG :&str = "Global ST - lT";
+
+// ?? Static References in Data Structures
+// * You can use 'static lifetimes in structs when you want a field to hold a reference that lives for the entire program.
+// * This is useful for cases where the data is either constant or will never be deallocated.
+
+struct Config<'a>{
+    msg:&'a str,
+}
+
 fn main() {
     println!("Hello, Life time concepts!");
     // ! Basic LT concept
@@ -149,4 +165,18 @@ fn main() {
     // string2 has a 'static lifetime (it's a string literal)
     // string1's lifetime is shorter, but Rust automatically coerces it
     print_longest(&string1, string2); // Coercion happens here
+
+
+    // !! LT with Static
+    // ? String Literals with 'static Lifetime
+    let s_lt : &'static str = "string literals LT"; //  `'static` lifetime string
+    println!("s-LT is{}",s_lt);
+    // ? 'static Lifetime with Non-Literal Data
+    println!("{}",GL_MSG);
+    // ? Static References in Data Structures
+    let config:Config<'static> = Config{
+        msg: "This message will live for the entire program",
+    };
+    println!("Config message: {}", config.msg);
+
 }
