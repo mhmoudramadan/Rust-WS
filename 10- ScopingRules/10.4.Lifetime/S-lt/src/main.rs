@@ -83,6 +83,16 @@ struct Borrowing_Named<'a> {
     y : &'a u32,
 }
 
+
+// !! LT with Coercion
+// * Lifetime coercion in Rust refers to the automatic conversion of lifetimes in certain contexts, 
+// * where Rust allows shorter lifetimes to be extended to match longer ones. 
+// * This is done to make it easier to work with function calls and references without requiring explicit lifetime annotations every time.
+
+fn print_longest<'a>(x: &'a str, y: &'a str) {
+    println!("Longest string: {}", if x.len() > y.len() { x } else { y });
+}
+
 fn main() {
     println!("Hello, Life time concepts!");
     // ! Basic LT concept
@@ -131,4 +141,12 @@ fn main() {
     let borrow_ = Borrowing_Named{x :&b6 ,y:&b7};
     println!("LT with struct is {:?}",borrow_);
 
+
+    // ! LT with Coercion
+    let string1 = String::from("hello");
+    let string2 = "world";
+
+    // string2 has a 'static lifetime (it's a string literal)
+    // string1's lifetime is shorter, but Rust automatically coerces it
+    print_longest(&string1, string2); // Coercion happens here
 }
