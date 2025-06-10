@@ -63,8 +63,7 @@ git clone https://github.com/mhmoudramadan/Rust-WS.git
 
 ### **Contributing**
 
-Contributions to the bootloader project are welcome! Feel free to submit bug reports, feature requests, or pull requests to improve the
-bootloader's functionality.
+Contributions to the project are welcome! Feel free to submit bug reports, feature requests, or pull requests to improve the functionality.
 
 ### License
 
